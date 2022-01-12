@@ -4,15 +4,14 @@ import movies from './data_a';
 import pokemon from './data_b';
 
 const Trailer = ({ data }) => (
-  <a href={data.url}
-     target="_blank"
-     rel="noopener noreferrer">
+ <a href={data}
+    target="_blank"
+    rel="noopener noreferrer">
     trailer...
   </a>
 );
 
-const PokemonName = ({ data }) => <span style={{ textTransform: 'capitalize' }}>{data}</span>;
-
+const PokemonName = ({ data }) => <span style={{ color: 'red' }}>{data}</span>;
 const moviesConfig = [
   {
     title: 'id',
@@ -26,11 +25,11 @@ const moviesConfig = [
     title: 'rating',
     field: 'imdbRating',
   },
- // {
- //   title: 'trailer',
- //   field: 'Trailer',
- //   component: Trailer
- // }
+  {
+    title: 'trailer',
+    field: 'Trailer',
+    component: Trailer
+  }
 ];
 
 const pokemonConfig = [
@@ -38,11 +37,11 @@ const pokemonConfig = [
     title: 'pokedex #',
     field: 'number'
   },
-  // {
-  //   title: 'name',
-  //   field: 'name',
-  //   component: PokemonName
-  // },
+  {
+    title: 'name',
+    field: 'name',
+    component: PokemonName
+  },
 ];
 
 const App = () => (
@@ -51,7 +50,7 @@ const App = () => (
     <Grid config={moviesConfig} data={movies} />
 
     <h2>Pokemon</h2>
-    <Grid config={pokemonConfig} data={pokemon} />
+    <Grid config={pokemonConfig} data={pokemon} /> 
   </div>
 );
 
