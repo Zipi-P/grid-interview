@@ -11,7 +11,7 @@ const Trailer = ({ data }) => (
   </a>
 );
 
-const PokemonName = ({ data }) => <span style={{ color: 'red' }}>{data}</span>;
+const PokemonName = ({ data }) => <span style={{ textTransform: 'capitalize' }}>{data}</span>;
 const moviesConfig = [
   {
     title: 'id',
