@@ -3,11 +3,11 @@ import React from 'react';
 const Grid = ({ config, data }) => (
   <table>
     <thead>
-      <tr>
+      <tr >
         {
-          config.map((config) => {
+          config.map((config,index) => {
             return (
-              <th>{config.title}</th>
+              <th key={index}>{config.title}</th>
             )
           })
         }
@@ -15,16 +15,16 @@ const Grid = ({ config, data }) => (
     </thead>
     <tbody>
       {
-        data.map((data) => {
+        data.map((data,index) => {
           return (
-            <tr>
+            <tr key={index}>
               {
-                config.map((config) => {
+                config.map((config,index) => {
                   return (
                     config.component ?
-                      <config.component data={data[config.field]} />
+                      <config.component key={index} data={data[config.field]} />
                       :
-                      <td>{data[config.field]}</td>)
+                      <td key={index}>{data[config.field]}</td>)
                 })}
             </tr>
           )
